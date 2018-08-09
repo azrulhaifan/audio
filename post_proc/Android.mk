@@ -5,6 +5,7 @@ include $(CLEAR_VARS)
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_PROXY_DEVICE)),true)
     LOCAL_CFLAGS += -DAFE_PROXY_ENABLED
+    LOCAL_CFLAGS += -Wno-error
 endif
 
 LOCAL_SRC_FILES:= \
@@ -19,15 +20,17 @@ LOCAL_SRC_FILES:= \
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_HW_ACCELERATED_EFFECTS)),true)
     LOCAL_CFLAGS += -DHW_ACCELERATED_EFFECTS
     LOCAL_SRC_FILES += hw_accelerator.c
+    LOCAL_CFLAGS += -Wno-error
 endif
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_AUDIOSPHERE)),true)
     LOCAL_CFLAGS += -DAUDIOSPHERE_ENABLED
     LOCAL_SRC_FILES += asphere.c
+    LOCAL_CFLAGS += -Wno-error
 endif
 
 LOCAL_CFLAGS+= -O2 -fvisibility=hidden
-
+LOCAL_CFLAGS += -Wno-error
 ifneq ($(strip $(AUDIO_FEATURE_DISABLED_DTS_EAGLE)),true)
     LOCAL_CFLAGS += -DDTS_EAGLE
 endif
@@ -39,7 +42,7 @@ LOCAL_SHARED_LIBRARIES := \
         libdl
 
 LOCAL_MODULE_TAGS := optional
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_MODULE_RELATIVE_PATH := soundfx
 LOCAL_MODULE:= libqcompostprocbundle
 LOCAL_VENDOR_MODULE := true
@@ -67,7 +70,7 @@ LOCAL_SHARED_LIBRARIES := \
     libeffects
 
 LOCAL_MODULE_TAGS := optional
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_CFLAGS += -O2 -fvisibility=hidden
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DTS_EAGLE)), true)
@@ -76,7 +79,7 @@ endif
 
 LOCAL_MODULE:= libhwacceffectswrapper
 LOCAL_VENDOR_MODULE := true
-
+LOCAL_CFLAGS += -Wno-error
 include $(BUILD_STATIC_LIBRARY)
 endif
 
@@ -102,7 +105,7 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE_RELATIVE_PATH := soundfx
 LOCAL_MODULE:= libvolumelistener
 LOCAL_VENDOR_MODULE := true
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_C_INCLUDES := \
         hardware/qcom/audio/hal \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
@@ -113,5 +116,5 @@ LOCAL_C_INCLUDES := \
         external/tinycompress/include
 
 include $(BUILD_SHARED_LIBRARY)
-
+LOCAL_CFLAGS += -Wno-error
 endif

@@ -19,7 +19,7 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils
 
 LOCAL_SHARED_LIBRARIES += libdl
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_CFLAGS += -fvisibility=hidden
 
 include $(BUILD_SHARED_LIBRARY)

@@ -34,7 +34,7 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE_RELATIVE_PATH := soundfx
 LOCAL_MODULE:= libqcomvisualizer
 LOCAL_VENDOR_MODULE := true
-
+LOCAL_CFLAGS += -Wno-error
 LOCAL_C_INCLUDES := \
 	external/tinyalsa/include \
 	$(call include-path-for, audio-effects)
