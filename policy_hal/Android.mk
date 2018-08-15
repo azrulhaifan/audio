@@ -42,7 +42,7 @@ LOCAL_STATIC_LIBRARIES := \
     libmedia_helper \
     libbase
 
-LOCAL_CFLAGS += -Wall -Werror
+LOCAL_CFLAGS += -Wall -Wno-error
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_VOICE_CONCURRENCY)),true)
 LOCAL_CFLAGS += -DVOICE_CONCURRENCY
