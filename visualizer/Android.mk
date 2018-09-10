@@ -31,6 +31,7 @@ LOCAL_SHARED_LIBRARIES := \
 	libdl \
 	libtinyalsa
 
+LOCAL_CFLAGS            += -Wno-error
 LOCAL_MODULE_RELATIVE_PATH := soundfx
 LOCAL_MODULE:= libqcomvisualizer
 LOCAL_VENDOR_MODULE := true
